@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Praveen Raj – Portfolio</title>
+
+  <style>
+
+@font-face {
+  font-family: "Qurova";
+  src: url("QurovaDEMO-SemiBold-BF67a5c637bcd0b.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+    :root {
+      --bg: #000000;
+      --card-bg: #0b0b0b;
+      --border: #202020;
+      --text: #e5e5e5;
+      --muted: #a3a3a3;
+      --accent-green: #719192;
+      --accent-grad: linear-gradient(90deg, #719192);
+    	--glow-main: rgba(255, 172, 66, 0.75);  
+	--glow-soft: rgba(255, 172, 66, 0.20);   
+	--glow-green: rgba(255, 172, 66, 0.70); 
+
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+     background: #000;
+     color: var(--text);
+     letter-spacing: 0.02em;
+     line-height: 1.65;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.75rem 1.5rem 4.5rem;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px #22c55e;
+    }
+
+    /* HERO */
+    .hero { max-width: 540px; margin: 0 auto; text-align: left; }
+
+    .hero-kicker { color: var(--muted); margin-bottom: 0.2rem; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    .hero-title { font-size: 2.6rem; font-weight: 700; margin-bottom: 0.4rem; letter-spacing: -0.03em; }
+
+    .name-underline {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  padding-bottom: 4px;
+font-family: "Qurova", -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                   system-ui, "Segoe UI", sans-serif;
+      letter-spacing: -0.04em;
+ opacity: 0;
+  animation: nameFadeIn 0.8s ease-out forwards;
+}
+
+.name-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #DFCDC3; 
+  border-radius: 5px;
+  box-shadow: 0 0 12px rgba(255, 172, 66, 0.6); 
+  opacity: 0;
+  transform: translateY(4px);
+  animation: underlineFadeIn 0.8s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+/* keyframes for the name */
+@keyframes nameFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* keyframes for the underline */
+@keyframes underlineFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    .hero-tagline {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 1.1rem;
+      background-image: var(--accent-grad);
+      -webkit-background-clip: text;
+      color: transparent;
+	letter-spacing: 0.03em;
+    }
+
+    .hero-text {
+      font-size: 0.98rem;
+      color: var(--muted);
+      margin-bottom: 1.7rem;
+      max-width: 540px;
+    }
+
+    /* BUTTONS */
+    .hero-actions {
+      display: flex;
+      gap: 0.9rem;
+      margin-bottom: 1.8rem;
+ 	flex-wrap: wrap;
+    }
+
+    .btn {
+      width: 140px;
+      padding: 0.55rem 0;
+      font-size: 0.95rem;
+      text-align: center;
+      border-radius: 999px;
+      border: 1px solid #333;
+      background: radial-gradient(circle at top, #151515, #050505);
+      color: #f1f1f1;
+      cursor: pointer;
+      transition: 0.18s ease out;
+      display: inline-block;
+     text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .btn:hover {
+      background: radial-gradient(circle at top, #1b1b1b, #060606);
+      transform: translateY(-1px);
+      box-shadow: 0 0 18px rgba(255, 172, 66, 0.55);
+      border-color: rgba(223, 205, 195, 0.9);
+    }
+
+ .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 0 10px rgba(255, 172, 66, 0.35);
+    }
+
+    /* SUBNAV */
+    .hero-subnav {
+      display: flex;
+      gap: 1.6rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0,75rem;
+    }
+
+    .hero-subnav a {
+      color: var(--muted);
+      text-decoration: none;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+}
+
+    .hero-subnav a:hover {
+      color: #fff;
+      border-bottom-color: #333;
+    }
+
+    /* SECTION TITLES */
+    h2.section-heading {
+      font-size: 1.8rem;
+      font-weight: 650;
+      color: #ffffff;
+      max-width: 540px;
+     margin: 3.1rem auto 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #2a2a2a;
+      letter-spacing: -0.01em;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+     padding: 1.4rem 1.5rem;
+      margin: 0.8rem auto 1.8rem;
+      max-width: 540px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+    }
+
+ .card p {
+      font-size: 0.97rem;
+    }
+
+    .card:hover {
+      border-color: #3a3a3a;
+      box-shadow: 0 0 18px var(--glow-soft);
+      transform: translateY(-2px);
+    }
+
+    .cert-list { list-style: none; }
+    .cert-list li { margin-bottom: 0.6rem; }
+
+    .cert-list a {
+      color: #719192;
+      text-decoration: underline;
+      transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+    .cert-list a:hover {
+      color: #DFCDC3;
+      text-shadow: 0 0 10px var(--glow-green);
+    }
+
+    /* make project links glow similarly */
+    .card a {
+      color: #719192;
+      text-decoration: underline;
+      transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+    .card a:hover {
+      color: #DFCDC3;
+      text-shadow: 0 0 10px var(--glow-green);
+    }
+
+    /* MORE PROJECTS */
+    details.more-projects {
+      max-width: 540px;
+      margin: 0 auto 2.2rem;
+    }
+
+    details.more-projects summary {
+      cursor: pointer;
+      color: #aaa;
+      margin-bottom: 1rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    details.more-projects summary::-webkit-details-marker { display: none; }
+
+    details.more-projects summary::before {
+      content: "▸";
+      font-size: 0.8rem;
+    }
+
+    details.more-projects[open] summary::before { content: "▾"; }
+
+    details.more-projects summary:hover {
+      color: #fff;
+      text-shadow: 0 0 8px var(--glow-soft);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    details.more-projects[open] .card {
+      animation: fadeInUp 0.25s ease-out;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-size: 0.85rem;
+      margin-top: 4rem;
+ 	letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <section class="hero">
+
+      <div class="status">
+        <div class="status-dot"></div>
+        <span>Online · Open to Internship (WBL)</span>
+      </div>
+
+      <p class="hero-kicker">Hey, I'm</p>
+
+      <h1 class="hero-title">
+        <span class="name-underline">Praveen Raj</span>
+      </h1>
+
+      <p class="hero-tagline">Computer Science / Data Science Student</p>
+
+      <p class="hero-text">
+        I'm a Computer Science student at Taylor's University specialising in Data Science with an
+        extension in Artificial Intelligence (AI). I'm in my second year and currently looking for an
+        internship for my Work-Based Learning (WBL).
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn linkedin" href="https://www.linkedin.com/in/praveenrajjj" target="_blank">LinkedIn</a>
+        <a class="btn" href="mailto:praveenrajamani27@gmail.com" target="_blank">E-Mail</a>
+  <a class="btn" href="https://github.com/ravenx27" target="_blank">GitHub</a>
+      </div>
+
+      <div class="hero-subnav">
+        <a href="#skills">Skills</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#projects">Projects</a>
+      </div>
+
+    </section>
+
+    <h2 class="section-heading" id="skills">Skills</h2>
+    <div class="card">
+      <p><strong>Programming:</strong> Python, Java, SQL</p>
+      <p><strong>Libraries:</strong> Pandas, NumPy, Scikit-learn</p>
+      <p><strong>Tools:</strong> GitHub, Tableau, Packet Tracer</p>
+    </div>
+
+    <h2 class="section-heading" id="certificates">Certificates</h2>
+    <div class="card">
+      <ul class="cert-list">
+        <li><a href="https://drive.google.com/file/d/1PxyUA0nBBj_OR328E-Yva3OIzyscOBgk/view?usp=sharing" target="_blank">Oracle Academy - Award of Final Exam Completion</a></li>
+        <li><a href="https://drive.google.com/file/d/1OOTxUItBTfuLne5x7cr0DbCJ9KIiZZX1/view?usp=sharing" target="_blank">AWS - AWS Cloud Practitioner Essentials</a></li>
+        <li><a href="https://drive.google.com/file/d/1SCJIFFTpxIAISrBSvaujUG3xCgHnYYZj/view?usp=sharing" target="_blank">CISCO Networking Academy - Certificate of Completion</a></li>
+	<li><a href="https://drive.google.com/file/d/1y67DZko4b5oMecglMHearKyS7WRIYurM/view?usp=sharing" target="_blank">Taylor's University Supercomputer Poster Challenge - Certificate of Achievement</a></li>
+      </ul>
+    </div>
+
+    <h2 class="section-heading" id="projects">Projects</h2>
+
+    <div class="card">
+      <p><strong>Database Systems Project (Fitness Centre Database)</strong></p>
+      <p>Developed a fully functional SQL database system with ERD/EER diagrams, queries, and reports.</p>
+      <p><a href="https://github.com/ravenx27/database-sql-project" target="_blank">GitHub Repo</a> ·
+      <a href="https://drive.google.com/file/d/19QhpCDK3hpNefyAyK8uCIr6p2KWAfwC9/view?usp=sharing" target="_blank">View Report (PDF)</a>
+  </p>
+</div>
+
+
+    <div class="card">
+      <p><strong>MinusCal - JavaFX Fitness Health Recorder</strong></p>
+      <p>Simple desktop GUI to track workouts, BMI, and health inputs.</p>
+  <p><a href="https://github.com/ravenx27/MinusCal" target="_blank">GitHub Repo</a> ·
+      <a href="https://drive.google.com/file/d/1iYZbHwXb0bSaD5XKfcmlIFFzHGtHjZvE/view?usp=sharing" target="_blank">View Report (PDF)</a>
+  </p>
+</div>
+
+    <details class="more-projects">
+      <summary>View more projects</summary>
+
+      <div class="card">
+        <p><strong>Cloud Network Simulation</strong></p>
+        <p>Designed routers, switches, and VLANs in Packet Tracer.</p>
+  <p><a href="https://drive.google.com/file/d/1OPqT3-99XVuW5oC7gSqzP6n6ZsSrx4kZ/view?usp=sharing" target="_blank">Cisco Packet Tracer File</a> ·
+      <a href="https://drive.google.com/file/d/14Tamas2KSYqFsc-MfK8d3Tvkb_yHxhXn/view?usp=sharing" target="_blank">View Report (PDF)</a>
+  </p>
+</div>
+
+<div class="card">
+        <p><strong>Drug Overdose Pattern Discovery using Data Mining Techniques</strong></p>
+        <p>Data preprocessing, Apriori/FP-Growth, and data mining techniques to analyze overdose patterns.</p>
+  <p><a href="https://github.com/ravenx27/Drug-Overdose-Pattern-Discovery-using-Data-Mining-Techniques" target="_blank">GitHub Repo</a> ·
+      <a href="https://drive.google.com/file/d/1LI52Wi4hyG44dv9d-YkCSf4thvgqTCZa/view?usp=sharing" target="_blank">View Report (PDF)</a>
+  </p>
+</div>
+
+<div class="card">
+        <p><strong>Smart Transportation & Healthcare Big Data Analytics Project</strong></p>
+        <p>Proposed, suggested and evaluated the use of Hadoop (HDFS), Apache Spark, and Apache Hive to analyze real-time and historical datasets across transportation systems (GLIDE & EMAS) and healthcare environments. Included data preprocessing, feature engineering, SQL-like analytics, and visualisation.</p>
+  <p><a href="https://drive.google.com/file/d/1XOPAbRVZjG-9rrogqZ9FogY7bUQoUyJ_/view?usp=sharing" target="_blank">View Report (Transportation) (PDF)</a> ·
+      <a href="https://drive.google.com/file/d/11A8vMSbxG_fbYI3mbgszuF-qh75MBIeb/view?usp=sharing" target="_blank">View Report (Healthcare) (PDF)</a>
+  </p>
+</div>
+
+<div class="card">
+        <p><strong>Machine Learning for Diabetes Classification (Python, scikit-learn)</strong></p>
+        <p>Performed full ML pipeline including data cleaning, Min-Max scaling, feature engineering, model comparison (LR, DT, RF, KNN, SVM, MLP), and hyperparameter tuning. Final Random Forest model delivered 98% accuracy with strong recall for diabetic cases; evaluated using 5-fold CV, ROC (AUC 0.99), and confusion matrix.</p>
+  <p><a href="https://github.com/ravenx27/Machine-Learning-for-Diabetes-Classification-Python-scikit-learn-" target="_blank">GitHub Repo</a> ·
+      <a href="https://drive.google.com/file/d/1mzplXa2YHHC5u28SNPWuYU0JagA9G6BA/view?usp=sharing" target="_blank">View Report (PDF)</a>
+  </p>
+</div>
+
+<div class="card">
+        <p><strong>R Statistical Analysis Project – Used Car Price Modeling</strong></p>
+        <p>Performed full ML pipeline including data cleaning, Min-Max scaling, feature engineering, model comparison (LR, DT, RF, KNN, SVM, MLP), and hyperparameter tuning. Final Random Forest model delivered 98% accuracy with strong recall for diabetic cases; evaluated using 5-fold CV, ROC (AUC 0.99), and confusion matrix.</p>
+  <p><a href="https://drive.google.com/file/d/1V6dDtmM8ayJUNDQkozliv-5JfJ2YZoI_/view?usp=sharing" target="_blank">View Report (PDF)</a>
+  </p>
+</div>
+
+<div class="card">
+        <p><strong>R-Based Statistical Inference & Salary Prediction Model</strong></p>
+        <p>Implemented One-Way ANOVA, Chi-Square Independence Test, and multiple linear regression to evaluate salary determinants in a large-scale software engineering dataset. Verified assumptions via Levene’s Test, Shapiro-Wilk, Q-Q plots, and residual diagnostics. Identified experience level as the strongest predictor, with company size and remote ratio also contributing to salary variation.</p>
+   <p><a href="https://github.com/ravenx27/R-Based-Statistical-Inference-Salary-Prediction-Model" target="_blank">GitHub Repo</a> ·
+      <a href="https://drive.google.com/file/d/1n5WpnBzywW4112-zPdmctG3NLxN5qr36/view?usp=sharing" target="_blank">View Report (PDF)</a>
+  </p>
+</div>
+
+    </details>
+
+    <footer>© 2025 Praveen Raj</footer>
+
+  </main>
+</body>
+</html>
